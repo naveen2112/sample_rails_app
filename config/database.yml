@@ -4,7 +4,7 @@ default: &default
 
 development:
   <<: *default
-  adapter: sqlite3
+  adapter: postgresql
   database: db/development.sqlite3
 
 #development:
@@ -37,5 +37,7 @@ production:
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   database: sample_app_production
-  username: sample_app
+  username: postgres
   password: <%= ENV['SAMPLE_APP_DATABASE_PASSWORD'] %>
+  host: dbror.cgqbvrmejkno.ap-south-1.rds.amazonaws.com
+  port: 5432
